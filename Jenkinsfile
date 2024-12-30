@@ -7,8 +7,6 @@ pipeline {
         DOCKER_CREDENTIALS_ID = 'dockerhub-auth'
         DOCKER_REPO = 'anashamza49/employees-app'
         DOCKER_TAG = 'latest'
-        SONARQUBE_ENV_NAME = 'MySonarQubeServer'
-        SONARQUBE_PROJECT_KEY = 'my-employees-project'
     }
     stages {
         stage('Checkout Code') {
@@ -24,13 +22,6 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 sh 'mvn test'
-            }
-        }
-        stage('Run SonarQube Analysis') {
-            steps {
-                withSonarQubeEnv(SONARQUBE_ENV_NAME) {
-                    sh 'mvn sonar:sonar -Dsonar.projectKey=${SONARQUBE_PROJECT_KEY}'
-                }
             }
         }
         stage('Package Application') {
