@@ -7,6 +7,8 @@ pipeline {
         DOCKER_CREDENTIALS_ID = 'dockerhub-auth'
         DOCKER_REPO = 'anashamza49/employees-app'
         DOCKER_TAG = 'latest'
+        REMOTE_SERVER = 'anas@192.168.23.134'
+        REMOTE_SERVER_SSH = 'server-ssh-remote'
         SONARQUBE_ENV_NAME = 'MySonarQubeServer'
         SONARQUBE_PROJECT_KEY = 'my-employees-project'
     }
