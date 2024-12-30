@@ -68,6 +68,13 @@ pipeline {
                 }
             }
         }
+        stage('Test SSH Connection') {
+    steps {
+        sshagent([REMOTE_SERVER_SSH]) {
+            sh 'ssh -o StrictHostKeyChecking=no anas@192.168.23.134 "echo SSH connection successful"'
+        }
+    }
+}
         stage('Deploy to Remote Server') {
             steps {
                 sshagent([REMOTE_SERVER_SSH]) {
