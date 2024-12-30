@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'MyMaven'
+        maven 'My-Maven'
     }
     environment {
         DOCKER_CREDENTIALS_ID = 'dockerhub-auth'
