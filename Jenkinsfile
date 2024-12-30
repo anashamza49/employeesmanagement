@@ -7,7 +7,7 @@ pipeline {
         DOCKER_CREDENTIALS_ID = 'dockerhub-auth'
         DOCKER_REPO = 'anashamza49/employees-app'
         DOCKER_TAG = 'latest'
-        REMOTE_SERVER = 'anas@192.168.23.134'
+        REMOTE_SERVER = 'anas@192.168.23.135'
         REMOTE_SERVER_SSH = 'server-ssh-remote'
         SONARQUBE_ENV_NAME = 'MySonarQubeServer'
         SONARQUBE_PROJECT_KEY = 'my-employees-project'
@@ -69,12 +69,12 @@ pipeline {
             }
         }
         stage('Test SSH Connection') {
-    steps {
-        sshagent([REMOTE_SERVER_SSH]) {
-            sh 'ssh -o StrictHostKeyChecking=no anas@192.168.23.134 "echo SSH connection successful"'
+        steps {
+                    sshagent([REMOTE_SERVER_SSH]) {
+                    sh 'ssh -o StrictHostKeyChecking=no anas@192.168.23.134 "echo SSH connection successful"'
+                }
+            }
         }
-    }
-}
         stage('Deploy to Remote Server') {
             steps {
                 sshagent([REMOTE_SERVER_SSH]) {
