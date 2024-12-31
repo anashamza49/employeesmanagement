@@ -83,7 +83,7 @@ pipeline {
                         docker stop \$(docker ps -q --filter ancestor=${DOCKER_REPO}:${DOCKER_TAG}) || true &&
                         docker rm \$(docker ps -q --filter ancestor=${DOCKER_REPO}:${DOCKER_TAG}) || true &&
                         docker pull ${DOCKER_REPO}:${DOCKER_TAG} &&
-                        docker run -d -p 8080:8080 ${DOCKER_REPO}:${DOCKER_TAG}
+                        docker run -d -p 8081:8080 ${DOCKER_REPO}:${DOCKER_TAG}
                     "
                     """
                 }
