@@ -71,7 +71,7 @@ pipeline {
         stage('Test SSH Connection') {
         steps {
                     sshagent([REMOTE_SERVER_SSH]) {
-                    sh 'ssh -o StrictHostKeyChecking=no anas@192.168.23.134 "echo SSH connection successful"'
+                    sh 'ssh -o StrictHostKeyChecking=no anas@192.168.23.135 "echo SSH connection successful"'
                 }
             }
         }
